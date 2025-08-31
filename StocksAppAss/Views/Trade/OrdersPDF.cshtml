@@ -1,0 +1,163 @@
+﻿@using StocksAppAss.DTOS;
+@{
+    ViewBag.Title = "OrdersPDF";
+    Layout = null;
+}
+
+
+
+
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="~/StyleSheet.css" rel="stylesheet" />
+
+</head>
+
+<h1>Orders</h1>
+  
+
+<h3>Bought Orders</h3>
+
+        <table class="table w-100 mt mb">
+            <thead>
+
+
+                <tr>
+                    <th>Date and Time</th>
+                    <th>Stock</th>
+                    <th>Order Type</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Trade Amount</th>
+                </tr>
+
+
+
+
+            </thead>
+
+            <tbody>
+
+
+        @foreach (BuyOrderResponse buyOrder in ViewBag.BuyOrders)
+        {
+            <tr>
+
+
+                <td>@buyOrder.DateAndTimeOfOrder?.ToString("yyyy/MM/dd hh:mm")</td>
+                <td>@buyOrder.StockName (@buyOrder.StockSymbol)</td>
+                <td>Buy</td>
+                <td>@buyOrder.Quantity</td>
+                <td>@buyOrder.Price</td>
+                <td>@buyOrder.TradeAmount</td>
+
+
+
+
+
+            </tr>
+
+
+
+
+
+
+        }
+
+
+
+
+
+            </tbody>
+  
+</table>  
+
+
+
+<h2> 
+    Sold Orders
+</h2>
+
+
+<table class="table w-100 mt">
+            <thead>
+
+
+                <tr>
+                    <th>Date and Time</th>
+                    <th>Stock</th>
+                    <th>Order Type</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Trade Amount</th>
+                </tr>
+
+
+
+
+            </thead>
+
+            <tbody>
+
+
+    
+
+
+        @foreach (SellOrderResponse sellOrder in ViewBag.SellOrders)
+        {
+            <tr>
+
+
+                <td>@sellOrder.DateAndTimeOfOrder?.ToString()</td>
+                <td>@sellOrder.StockName (@sellOrder.StockSymbol)</td>
+                <td>Sell</td>
+                <td>@sellOrder.Quantity</td>
+                <td>@sellOrder.Price</td>
+                <td>@sellOrder.TradeAmount</td>
+
+
+
+
+
+            </tr>
+
+
+
+
+
+
+        }
+
+
+
+
+
+            </tbody>
+  
+</table>
+
+
+
+
+
+
+
+
+
+
+   
+     
+
+
+
+     
+   
+
+
+
+
+

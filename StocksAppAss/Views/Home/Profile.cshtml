@@ -1,0 +1,49 @@
+﻿@model StocksAppAss.Models.StockProfile;
+
+@{
+    ViewBag.Title = "Profile";
+}
+
+
+
+<div class="box trading-panel">
+
+    <div class="flex trading-panel-flex">
+
+        <div id="stock-price-panel">
+
+            <div class="stock">
+
+                <h1 class="stock-title">@Model.Name</h1>
+
+                <table>
+                    <tr>
+                        <td>Country:</td>
+                        <th><span class="price">@Model.Country</span></th>
+
+                    </tr>
+                    <tr>
+                        <td>Currency:</td>
+                        <th><span class="price">@Model.Currency</span></th>
+                    </tr>
+                    <tr>
+                        <td>Name:</td>
+                        <th><span class="price">@Model.Name</span></th>
+
+                    </tr>
+                    <tr>
+                        <td>Phone:</td>
+                        <th><span class="price">@Model.Phone</span></th>
+
+                    </tr>
+                </table>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</div>

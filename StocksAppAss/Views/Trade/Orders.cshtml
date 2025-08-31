@@ -1,0 +1,91 @@
+﻿@using StocksAppAss.DTOS;
+@{
+    ViewBag.Title = "Orders";
+    ViewBag.Currenturl = "~/Trade/Orders";
+}
+
+<div class="text-grey">
+
+    <span>Stocks</span>
+    <i class="fa-solid fa-caret-right"></i>
+    <span>Orders</span>
+
+</div>
+<div><a href="/trade/orderspdf" target="OrdersPDF">Orders as Pdf</a></div>
+
+<div class="flex orders-list" >
+
+    <div class="box" id="buy-orders-list">
+
+        <h3 class="ml text-grey">Buy Orders</h3>
+
+
+
+        @foreach(BuyOrderResponse buyOrder in ViewBag.BuyOrders)
+        {
+            <div class="mb;"> </div>
+
+            <h2 class="mb ml">@buyOrder.StockName (@buyOrder.StockSymbol)</h2>
+
+           <div class="mb ml"> @buyOrder.Quantity <span class="text-grey">shares at</span> <small>$</small>@buyOrder.Price </div>
+
+           <div class="mb ml">  <span class="text-grey"> Trade Amount: </span> <small>$</small> @(buyOrder.Price*buyOrder.Quantity) </div>
+          
+           <div class="mb ml">  @buyOrder.DateAndTimeOfOrder.ToString() </div>
+
+           <hr />
+
+
+
+
+
+
+        }
+        @if(ViewBag.BuyOrders.Count == 0)
+        {
+            <h2 class="ml mt text-blue">No orders</h2>
+        }
+
+
+
+
+    </div>
+
+
+    <div class= "box" id="sell-orders-list">
+
+        <h3 class="ml text-grey">Sell Orders</h3>
+
+        @foreach (SellOrderResponse buyOrder in ViewBag.SellOrders)
+        {
+            <h2 class="mb ml">@buyOrder.StockName (@buyOrder.StockSymbol)</h2>
+
+            <div class="mb ml"> @buyOrder.Quantity <span class="text-grey">shares at</span> <small>$</small>@buyOrder.Price </div>
+
+            <div class="mb ml">  <span class="text-grey"> Trade Amount: </span> <small>$</small> @(buyOrder.Price * buyOrder.Quantity) </div>
+
+            <div class="mb ml">  @buyOrder.DateAndTimeOfOrder.ToString() </div>
+
+            <hr />
+
+
+
+
+
+
+        }
+
+        @if (ViewBag.SellOrders.Count == 0)
+        {
+            <h2 class="ml mt text-blue">No orders</h2>
+        }
+
+
+    </div>
+    
+
+
+
+
+
+</div>
